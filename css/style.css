@@ -1,0 +1,715 @@
+/* 색상 변수에 담아놓기 메인컬러 --mc 서브컬러 --sc */
+:root {
+    --mc: #09847F;
+    --sc: #846130;
+    --lc: #ddd;
+    --wc: #ffffff;
+    --dc: #444444;
+    --gc: #f9f9f9;
+}
+
+.inner {
+    max-width: 1440rem;
+    margin: 0 auto;
+    padding: 0 15rem;
+}
+
+.btn {
+    display: inline-block;
+    font-size: 16rem;
+    padding: 10rem 30rem;
+    border-radius: 30rem;
+    overflow: hidden;
+}
+
+.btn2 {
+    display: inline-block;
+    font-size: 18rem;
+    padding: 10rem 20rem;
+    border-radius: 20rem;
+    overflow: hidden;
+    background: var(--dc);
+    color: var(--wc);
+}
+
+.btn3 {
+    display: inline-block;
+    font-size: 14rem;
+    padding: 5rem 10rem 4rem 10rem;
+    border-radius: 10rem;
+    overflow: hidden;
+    color: var(--mc);
+    border: 2px solid var(--mc);
+}
+
+
+.btn::after {
+    content: "\f1be";
+    font-family: bootstrap-icons;
+    vertical-align: -3px;
+    margin: 0 0 0 15rem;
+}
+
+
+.btn.wc {
+    position: relative;
+    color: var(--wc);
+    border: 3px solid var(--wc);
+}
+
+.btn.wc::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: -1;
+    background: var(--mc);
+    transition: 0.5s;
+}
+
+.btn.wc:hover::before {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+
+.btn .wc {
+    color: var(--wc);
+    border: 3px solid var(--wc);
+}
+
+.list_dot>* {
+    position: relative;
+    padding: 0 0 0 15rem;
+}
+
+.list_dot>*::before {
+    content: "";
+    position: absolute;
+    top: 7rem;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--mc);
+}
+
+
+.section {
+    padding: 100rem 0;
+}
+
+.section.gc {
+    background: var(--gc);
+}
+
+.wrap {}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header.on {
+    background: var(--wc);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.header .header_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120rem;
+
+    transition: height 0.5s;
+}
+
+.header.on .header_wrap {
+    height: 80rem;
+}
+
+
+.header .header_wrap h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Jeongnimsaji-R';
+}
+
+.header.on .header_wrap h1 {
+    filter: invert(100%);
+}
+
+
+
+/* 헤더 메인 메뉴 영역 */
+.header .gnb {}
+
+
+.header .gnb .main_menu {
+    display: flex;
+    /* 메뉴 띄울 때 갭을 줄것이냐 li에 패딩을 줄것이냐 */
+}
+
+/* 결국 li에 패딩을 줘따 */
+.header .gnb .main_menu>li {
+    position: relative;
+    padding: 0 30px;
+}
+
+
+.header .gnb .main_menu a {
+    display: block;
+    color: var(--wc);
+    font-size: 18rem;
+    line-height: 120rem;
+}
+
+.header.on .gnb .main_menu a {
+    color: var(--dc);
+}
+
+
+.header .gnb .main_menu .sub_menu {
+    position: absolute;
+    top: 130rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: var(--wc);
+    width: 180rem;
+    text-align: center;
+
+    padding: 15rem 0;
+    border-radius: 20rem;
+    border: 2px solid var(--lc);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.5s;
+}
+
+
+.header .gnb .main_menu>li:hover .sub_menu {
+    top: 100rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.header.on .gnb .main_menu>li:hover .sub_menu {
+    top: 90rem;
+}
+
+
+.header .gnb .sub_menu li~li {
+    border-top: 1px solid var(--lc);
+}
+
+.header .gnb .sub_menu a {
+    display: block;
+    color: var(--dc);
+    font-size: 15rem;
+    line-height: 40rem;
+}
+
+
+
+
+/* 메인 섹션 1 - 메인 슬라이드 */
+
+
+.main_visual {
+    position: relative;
+    height: 100vh;
+}
+
+.main_visual .main_slide {
+    border-radius: 0 0 180rem 0;
+    overflow: hidden;
+
+}
+
+/* 패럴렉스 슬라이드 셋 */
+.main_visual .main_slide .itm {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+
+/* 패럴렉스 슬라이드 이미지 기본 셋 */
+.main_visual .main_slide .itm .slide-image {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+
+.main_slide .itm .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    text-align: center;
+}
+
+.main_slide .itm .img_box {
+    margin: 0 0 50rem 0;
+}
+
+.main_slide .itm p {
+    color: var(--wc);
+    margin: 0 0 50rem 0;
+    text-align: center;
+    font-size: 19rem;
+    font-weight: 400;
+    line-height: 26rem;
+
+    transform: translate(150rem, 0);
+    opacity: 0;
+    transition: .5s 1s;
+}
+
+
+.main_slide .itm.on p {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+.main_slide .itm .btn {
+    opacity: 0;
+    transform: translate(-100rem, 0);
+    transition: .5s 1.5s;
+}
+
+.main_slide .itm.on .btn {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/*  패럴렉스 슬라이드 애니메이션 타입 */
+/* .swiper-wrapper {
+    transition-timing-function: linear;
+} */
+
+.main_visual .main_slide .itm01 .slide-image {
+    height: 100vh;
+    background: url(../images/woongcheonyo_main_logo_image01.png) no-repeat top center/cover;
+}
+
+.main_visual .main_slide .itm02 .slide-image {
+    height: 100vh;
+    background: url(../images/woongcheonyo_main_logo_image02.png) no-repeat top center/cover;
+}
+
+
+
+/* 슬라이드 화살표 */
+.main_visual .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 2400rem;
+    width: 100%;
+    z-index: 998;
+}
+
+.main_visual .arrows i {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.main_visual .arrows .left {
+    position: absolute;
+    left: 15rem;
+    top: 0;
+}
+
+.main_visual:hover .arrows .left {
+    opacity: 0.8;
+    transform: translate(80rem, 0);
+}
+
+.main_visual .arrows .right {
+    position: absolute;
+    right: 15rem;
+    top: 0;
+}
+
+.main_visual:hover .arrows .right {
+    opacity: 0.8;
+    transform: translate(-80rem, 0);
+}
+
+
+.main_visual .arrows i::before {
+    font-size: 30rem;
+    color: var(--wc);
+    padding: 24rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+
+.main_visual .scroll {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    cursor: pointer;
+
+}
+
+.main_visual .scroll span {
+    position: relative;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+
+}
+
+.main_visual .scroll span::before {
+
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 1px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, 0);
+}
+
+.main_visual .scroll span::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    transform: translate(-50%, 0);
+
+    animation: circle 1.5s infinite cubic-bezier(1, .18, .49, 1.03);
+
+}
+
+@keyframes circle {
+    0% {
+        transform: translate(-50%, 0);
+        outline: 0 solid rgba(255, 255, 255, 1);
+
+    }
+
+    90% {
+        outline: 0 solid rgba(255, 255, 255, 1);
+    }
+
+    100% {
+        transform: translate(-50%, 90px);
+        outline: 20px solid rgba(255, 255, 255, 0);
+    }
+}
+
+/* 메인 콘텐츠 섹션 */
+.main_content .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30rem;
+}
+
+.main_content .content>* {
+    padding: 40rem 40rem;
+}
+
+.main_content .content .left {
+    position: relative;
+    border-radius: 50rem;
+    background: var(--dc);
+}
+
+.main_content .content .left::after {
+    content: "";
+    position: absolute;
+    bottom: -20rem;
+    right: 0;
+    width: 400rem;
+    height: 150rem;
+    background: url(../img/img_logo2.svg) no-repeat right bottom;
+    filter: invert();
+}
+
+.main_content .content h3 {
+    font-size: 24rem;
+    font-weight: 700;
+    margin: 0 0 17rem 0;
+    color: var(--wc);
+}
+
+.main_content .content .left {
+    opacity: 0;
+    transform: translate(0, 100rem);
+    transition: .8s;
+}
+
+.main_content.on .content .left {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+.main_content .content .left p {
+    font-size: 15rem;
+    font-weight: 300;
+    line-height: 20rem;
+    color: var(--wc);
+    margin: 0 0 37rem 0;
+}
+
+.main_content .content .right {
+
+    opacity: 0;
+    transform: translate(0, 100rem);
+    transition: .8s .5s;
+}
+
+
+
+.main_content.on .content .right {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.main_content .content .right .desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 30rem 0;
+    padding: 0 0 15rem 0;
+    border-bottom: 1px dashed var(--lc);
+}
+
+.main_content .content .right .desc i {
+    background: var(--gc);
+    padding: 15rem 16rem;
+    border-radius: 50%;
+    font-size: 30rem;
+}
+
+.main_content .content .right .desc .tel {
+    font-size: 40rem;
+    font-weight: 700;
+}
+
+.main_content .content .list>* {
+    display: grid;
+    grid-template-columns: 100rem 1fr;
+    margin: 0 0 20rem 0;
+    line-height: 1.6;
+}
+
+.main_content .content .list .ls2 {
+    letter-spacing: 30rem;
+}
+
+.main_content .content .list>*::before {
+    top: 10rem;
+}
+
+
+
+
+/* 메인 배너 */
+.main_banner .content {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30rem;
+    background: var(--dc);
+    color: var(--wc);
+    z-index: 998;
+
+
+    border-radius: 50rem;
+    box-shadow: 5rem 5rem 20rem rgba(0, 0, 0, 0.2);
+
+    transition: .5s;
+    transform: translate(0, 100rem);
+}
+
+.main_banner.on .content {
+    transform: translate(0, 0);
+}
+
+
+.main_banner .content a {
+    display: block;
+    padding: 60rem 80rem;
+}
+
+.main_banner .content h3 {
+    font-size: 30rem;
+    font-weight: 500;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.main_banner .content p {
+    font-size: 15rem;
+    line-height: 21rem;
+}
+
+.main_banner .content li {
+    position: relative;
+}
+
+.main_banner .content li a::after {
+    content: "";
+    position: absolute;
+    right: 80rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100rem;
+    height: 100rem;
+    background: url(../img/icon_experience.svg) no-repeat center center;
+}
+
+.main_banner .content li:last-child a::after {
+    background: url(../img/icon_theater.svg) no-repeat center center;
+}
+
+.main_banner .content li~li::before {
+    content: "";
+    position: absolute;
+    left: -15rem;
+    top: 30rem;
+    bottom: 30rem;
+    width: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* 푸터 */
+
+.footer {
+    padding: 100rem 0 0 0;
+}
+
+.footer .bottom {
+    position: relative;
+    background: #393846;
+    padding: 50rem 0 100rem 0;
+    color: var(--gc);
+    font-size: 15rem;
+    font-weight: 300;
+}
+
+
+.footer .bottom .customer {
+    display: flex;
+    gap: 40rem;
+    margin: 0 0 20rem 0;
+}
+
+.footer .bottom .customer>* {
+    position: relative;
+}
+
+.footer .bottom .customer li~li::before {
+    content: "";
+    position: absolute;
+    left: -20rem;
+    top: 50%;
+    width: 2px;
+    height: 2px;
+    background: var(--lc);
+    transform: translate(-50%, -50%);
+}
+
+.footer .bottom .adress {
+    margin: 0 0 16rem 0;
+}
+
+.footer .bottom .tel {
+    margin: 0 0 32rem 0;
+}
+
+
+.footer .bottom .copyright {
+    font-size: 14rem;
+    color: var(--lc);
+}
+
+
+
+.footer .bottom .circle {
+    position: absolute;
+    bottom: 50rem;
+    right: 245rem;
+
+    word-break: keep-all;
+    text-align: center;
+    width: 180rem;
+    height: 180rem;
+    padding: 40rem;
+    border-radius: 50%;
+    background: #B4613D;
+    font-size: 17rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.footer .bottom .circle::before {
+    content: "";
+    display: block;
+    margin: auto auto 10rem auto;
+    background: url(../img/icon_map.svg) no-repeat center center;
+    width: 30rem;
+    height: 30rem;
+    color: var(--lc);
+}
+
+
+.to_top {
+    position: fixed;
+    bottom: 200rem;
+    right: 50rem;
+    z-index: 999;
+
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+
+
+}
+
+.to_top.on {
+    bottom: 50rem;
+    visibility: visible;
+    opacity: 1;
+}
+
+.to_top i {
+    color: var(--dc);
+    background: var(--wc);
+    padding: 5rem 6rem;
+    border-radius: 50%;
+    font-size: 20rem;
+    cursor: pointer;
+    box-shadow: 0 0 1px 1px #dadcdf, 0 1px 1px 0 rgba(0, 0, 0, .25);
+}
